@@ -2,7 +2,7 @@
 
 const AllExercises = (props) => {
 
-    var exercises = this.state.exercises.map((exercise) => {
+    var exercises = props.exercises.map((exercise) => {
       return(
         <div key={exercise.id}>
           <p>{exercise}</p>
