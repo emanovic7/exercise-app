@@ -13,6 +13,7 @@ class Body extends React.Component {
     this.addNewExercise = this.addNewExercise.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.deleteExercise = this.deleteExercise.bind(this)
+    this.udpateExercise = this.updateExercise.bind(this)
   }
 
   handleFormSubmit(name, description) {
@@ -59,6 +60,27 @@ class Body extends React.Component {
     })
   }
 
+  handleUpdate(exercise){
+    fetch(`http://localhost:3000/api/v1/exercises/${exercise.id}`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({exercise: exercise}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+        this.updateFruit(exercise)
+      })
+  }
+
+  updateExercise(exercise){
+    let newExercises = this.state.exercises.filter((e) => e.id !== exercise.id)
+    newExercises.push(Exercise)
+    this.setState({
+      exercises: newExercises
+    })
+  }
+
   componentDidMount(){
     fetch(url)
     .then((response) => {return response.json()})
@@ -73,7 +95,7 @@ class Body extends React.Component {
       <span>
         <NewExercise handleFormSubmit={this.handleFormSubmit} />
         <br/><br/>
-        <AllExercises exercises={this.state.exercises} handleDelete = {this.handleDelete}/>
+        <AllExercises exercises={this.state.exercises} handleDelete = {this.handleDelete} handleUpdate = {this.handleUpdate}/>
       </span>
     )
   }
