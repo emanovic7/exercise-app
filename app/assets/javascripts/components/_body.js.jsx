@@ -22,9 +22,11 @@ class Body extends React.Component {
 
   render(){
     return(
-      <div>
+      <span>
+        <NewExercise />
+        <br/><br/>
         <AllExercises exercises={this.state.exercises} />
-      </div>
+      </span>
     )
   }
 
