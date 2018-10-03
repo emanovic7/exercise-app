@@ -1,9 +1,8 @@
-const url = 'https://wger.de/api/v2/equipment/';
+const url = '/api/v1/exercises.json';
 
 
 
 class Body extends React.Component {
-
 
   constructor(props){
     super(props);
@@ -18,6 +17,8 @@ class Body extends React.Component {
     .then((data) => {this.setState({ exercises: data })
      });
   }
+
+
 
   render(){
     return(
