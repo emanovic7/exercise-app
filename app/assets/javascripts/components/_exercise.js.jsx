@@ -5,7 +5,22 @@ constructor(props){
     super(props);
     this.state = {
       editable: false
+      this.handleEdit = this.handleEdit.bind(this)
     }
+  }
+
+
+  handleEdit(){
+   if(this.state.editable){
+      let name = this.name.value
+      let description = this.description.value
+      let id = this.props.exercise.id
+      let exercise = {id: id, name: name, description: description}
+      this.props.handleUpdate(exercise)
+    }
+    this.setState({
+      editable: !this.state.editable
+    })
   }
 
   render(){
