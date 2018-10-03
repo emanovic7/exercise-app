@@ -12,6 +12,7 @@ class Body extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.addNewExercise = this.addNewExercise.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.deleteExercise = this.deleteExercise.bind(this)
   }
 
   handleFormSubmit(name, description) {
@@ -37,7 +38,7 @@ class Body extends React.Component {
     })
   }
 
-  {/* Add Delete Function */}
+
 
   handleDelete(id){
     fetch('http://localhost:3000/api/v1/exercises/${id}',
@@ -47,7 +48,14 @@ class Body extends React.Component {
         'Content-Type': 'application/json'
       }
     }).then((response) => {
-      console.log('Exercise was deleted!')
+      this.deleteExercise(id)
+    })
+  }
+
+  deleteExercise(id){
+    newExercises = this.state.Exercises.filter((exercise) => exercise.id !== id)
+    this.setState({
+      exercises: newExercises
     })
   }
 
