@@ -4,17 +4,18 @@ const url = '/api/v1/exercises.json';
 
 class Body extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      exercises: []
-    };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.addNewExercise = this.addNewExercise.bind(this)
-    this.handleDelete = this.handleDelete.bind(this)
-    this.deleteExercise = this.deleteExercise.bind(this)
-    this.udpateExercise = this.updateExercise.bind(this)
-  }
+constructor(props) {
+  super(props);
+  this.state = {
+    exercises: []
+  };
+  this.handleFormSubmit = this.handleFormSubmit.bind(this)
+  this.addNewExercise = this.addNewExercise.bind(this)
+  this.handleDelete = this.handleDelete.bind(this)
+  this.deleteExercise = this.deleteExercise.bind(this)
+  this.handleUpdate = this.handleUpdate.bind(this);
+  this.updateExercise = this.updateExercise.bind(this)
+}
 
   handleFormSubmit(name, description) {
     let body = JSON.stringify({
@@ -69,7 +70,7 @@ class Body extends React.Component {
         'Content-Type': 'application/json'
       }
     }).then((response) => {
-        this.updateFruit(exercise)
+        this.updateExercise(exercise)
       })
   }
 

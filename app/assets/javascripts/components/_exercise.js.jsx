@@ -2,12 +2,12 @@ class Exercise extends React.Component{
 
 
 constructor(props){
-    super(props);
-    this.state = {
-      editable: false
-    }
-    this.handleEdit = this.handleEdit.bind(this)
-  }
+   super(props);
+   this.state = {
+     editable: false
+   }
+   this.handleEdit = this.handleEdit.bind(this)
+ }
 
 
   handleEdit(){
