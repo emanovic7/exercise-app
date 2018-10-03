@@ -9,6 +9,31 @@ class Body extends React.Component {
     this.state = {
       exercises: []
     };
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.addNewExercise = this.addNewExercise.bind(this)
+  }
+
+  handleFormSubmit(name, description) {
+    let body = JSON.stringify({
+      exercise: {name: name, description: description}
+    })
+
+    fetch('http://localhost:3000/api/v1/excersises', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: body,
+    }).then((response) => {return response.json()})
+    .then((exercise)=>{
+      this.addNewExercise(exercise)
+    })
+  }
+
+  addNewExercise(exercise){
+    this.setState({
+      exercises: this.state.exercises.concat(exercise)
+    })
   }
 
   componentDidMount(){
@@ -23,7 +48,7 @@ class Body extends React.Component {
   render(){
     return(
       <span>
-        <NewExercise />
+        <NewExercise handleFormSubmit={this.handleFormSubmit} />
         <br/><br/>
         <AllExercises exercises={this.state.exercises} />
       </span>

@@ -6,7 +6,6 @@ const AllExercises = (props) => {
       return(
 
         <div key={exercise.id}>
-          <h2>Exercises</h2>
           <h3>{exercise.name}</h3>
           <p>{exercise.description}</p>
         </div>
@@ -19,6 +18,5 @@ const AllExercises = (props) => {
         {exercises}
       </div>
     )
-
 
 }
