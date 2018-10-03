@@ -1,10 +1,10 @@
 
 const AllExercises = (props) => {
 
-  var fruits = props.fruits.map((fruit) => {
+  var exercises = props.exercises.map((exercise) => {
     return(
-      <div key={fruit.id}>
-       <Exercise fruit={fruit} handleDelete={props.handleDelete} handleUpdate={props.handleUpdate}/>
+      <div key={exercise.id}>
+       <Exercise exercise={exercise} handleDelete={props.handleDelete} handleUpdate={props.handleUpdate}/>
       </div>
     )
   })
@@ -12,9 +12,9 @@ const AllExercises = (props) => {
 
   return(
       <div>
-        {fruits}
+        {exercises}
       </div>
     )
 
-    
+
 }
