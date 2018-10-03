@@ -33,7 +33,7 @@ constructor(props){
         {name}
         {description}
         <button onClick={() => this.handleEdit()}>{this.state.editable? 'Submit' : 'Edit'}</button>
-        <button>{this.state.editable? 'Submit' : 'Edit'}</button>
+
         <button onClick={() => this.props.handleDelete(this.props.exercise.id)}>Delete</button>
       </div>
     )
