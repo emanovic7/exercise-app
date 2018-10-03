@@ -5,8 +5,8 @@ constructor(props){
     super(props);
     this.state = {
       editable: false
-      this.handleEdit = this.handleEdit.bind(this)
     }
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
 
