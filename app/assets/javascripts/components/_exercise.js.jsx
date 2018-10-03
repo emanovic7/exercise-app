@@ -7,6 +7,7 @@ class Exercise extends React.Component {
       <div>
         <h2>{this.props.exercise.name}</h2>
         <p>{this.props.exercise.description}</p>
+        <button onClick={ ()=> this.props.handleDelete }>Delete</button>
       </div>
     )
   }
